@@ -50,6 +50,12 @@ func TestGetPrice120FromOrderLSize(t *testing.T) {
 	assert.Equal(t, order.getPrice(), 120)
 }
 
+func TestGetPricePlus10FromOrderIced(t *testing.T) {
+	order := PlaceOrder("M", "Latte", "Iced")
+
+	assert.Equal(t, order.getPrice(), 110)
+}
+
 func TestGetPricePlus10FromOrderCappuccino(t *testing.T) {
 	order := PlaceOrder("M", "Cappuccino", "Hot")
 
