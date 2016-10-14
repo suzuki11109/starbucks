@@ -1,8 +1,9 @@
 package starbucks
 
 type Order struct {
-	coffeeType CoffeeType
-	size       Size
+	coffeeType  CoffeeType
+	size        Size
+	temperature string
 }
 
 func (o Order) getPrice() int {
@@ -15,19 +16,22 @@ func (o Order) getPrice() int {
 
 func (o Order) getCoffee() Coffee {
 	return Coffee{
-		shorts:     o.size.getShorts(),
-		coffeeType: o.coffeeType.name(),
+		shorts:      o.size.getShorts(),
+		coffeeType:  o.coffeeType.name(),
+		temperature: o.temperature,
 	}
 }
 
 type Coffee struct {
-	coffeeType string
-	shorts     int
+	coffeeType  string
+	shorts      int
+	temperature string
 }
 
-func PlaceOrder(size string, coffeeType string) Order {
+func PlaceOrder(size string, coffeeType string, temperature string) Order {
 	return Order{
-		size:       getSize(size),
-		coffeeType: getCoffeeType(coffeeType),
+		size:        getSize(size),
+		coffeeType:  getCoffeeType(coffeeType),
+		temperature: temperature,
 	}
 }
