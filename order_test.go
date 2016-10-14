@@ -30,6 +30,14 @@ func TestGetCoffeeTypeLatteFromOrderLatte(t *testing.T) {
 	assert.Equal(t, coffee.coffeeType, "Latte")
 }
 
+func TestGetCoffeeTypeMochaFromOrderMocha(t *testing.T) {
+	order := PlaceOrder("L", "Mocha", "Hot")
+
+	coffee := order.getCoffee()
+
+	assert.Equal(t, coffee.coffeeType, "Mocha")
+}
+
 func TestGetTemperatureHotFromOrderHot(t *testing.T) {
 	order := PlaceOrder("L", "Latte", "Hot")
 
@@ -60,4 +68,10 @@ func TestGetPricePlus10FromOrderCappuccino(t *testing.T) {
 	order := PlaceOrder("M", "Cappuccino", "Hot")
 
 	assert.Equal(t, order.getPrice(), 110)
+}
+
+func TestGetPricePlus20FromOrderMocha(t *testing.T) {
+	order := PlaceOrder("M", "Mocha", "Iced")
+
+	assert.Equal(t, order.getPrice(), 130)
 }

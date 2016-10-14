@@ -27,12 +27,25 @@ func (c Cappuccino) getPrice() int {
 	return 10
 }
 
+type Mocha struct {
+}
+
+func (m Mocha) name() string {
+	return "Mocha"
+}
+
+func (m Mocha) getPrice() int {
+	return 20
+}
+
 func getCoffeeType(coffeeType string) CoffeeType {
 	switch coffeeType {
 	case "Cappuccino":
 		return Cappuccino{}
 	case "Latte":
 		return Latte{}
+	case "Mocha":
+		return Mocha{}
 	}
 
 	return Latte{}

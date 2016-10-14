@@ -1,5 +1,13 @@
 package starbucks
 
+func PlaceOrder(size string, coffeeType string, temperature string) Order {
+	return Order{
+		size:        getSize(size),
+		coffeeType:  getCoffeeType(coffeeType),
+		temperature: createTemperature(temperature),
+	}
+}
+
 type Order struct {
 	coffeeType  CoffeeType
 	size        Size
@@ -27,12 +35,4 @@ type Coffee struct {
 	coffeeType  string
 	shorts      int
 	temperature string
-}
-
-func PlaceOrder(size string, coffeeType string, temperature string) Order {
-	return Order{
-		size:        getSize(size),
-		coffeeType:  getCoffeeType(coffeeType),
-		temperature: createTemperature(temperature),
-	}
 }
